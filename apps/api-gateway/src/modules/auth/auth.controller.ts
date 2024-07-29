@@ -1,9 +1,9 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, UseGuards, Request } from '@nestjs/common';
 import { AuthenticationService } from './auth.service';
-import { Public } from 'src/common/decorators/public.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { AuthGuard } from '@nestjs/passport';
-import { LocalAuthGuard } from 'src/common/guards/local.guards';
-import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { LocalAuthGuard } from '../../common/guards/local.guards';
+import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 
 @Controller('authentication')
 export class AuthenticationController {
