@@ -2,7 +2,14 @@
   "name": "@streaming-project-workspace/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:dev:be": "nx run api-gateway:serve:development",
+    "start:dev:fe": "nx run frontend:serve:development",
+    "start:dev:full": "powershell -File ./scripts/start-dev.ps1",
+    "start:prod:be": "nx run api-gateway:serve:production",
+    "start:prod:fe": "nx run frontend:serve:production"
+  },
+  "nx": {},
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.1.0",
