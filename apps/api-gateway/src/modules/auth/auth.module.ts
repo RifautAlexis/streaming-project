@@ -7,6 +7,7 @@ import { jwtConstants } from './constants';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   controllers: [AuthenticationController],
@@ -14,13 +15,10 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     AuthenticationService,
     LocalStrategy,
     JwtStrategy,
-    {
-      provide: 'APP_GUARD',
-      useClass: JwtAuthGuard,
-    }
   ],
   imports: [
     UsersModule,
+    PassportModule,
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,

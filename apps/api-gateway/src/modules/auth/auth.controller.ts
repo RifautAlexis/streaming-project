@@ -9,18 +9,10 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 export class AuthenticationController {
   constructor(private authService: AuthenticationService) {}
 
-  // @Public()
-  // @HttpCode(HttpStatus.OK)
-  // @Post('login')
-  // signIn(@Body() signInDto: Record<string, any>) {
-  //   return this.authService.signIn(signInDto.username, signInDto.password);
-  // }
-
   @Public()
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Request() signInDto: Record<string, any>) {
-    console.log(signInDto);
     return this.authService.signIn(signInDto.body.username, signInDto.body.password);
   }
 
