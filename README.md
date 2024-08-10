@@ -7,3 +7,6 @@
 
 `npx nx serve frontend`
 `npx nx build frontend`
+
+## View inferred tasks
+`nx show project project-name --web`
