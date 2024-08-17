@@ -1,1 +1,36 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<nz-layout class="h-full">
+  <nz-header>
+    <img ngSrc="./assets/logoipsum.svg" alt="logo" width="123" height="61" priority />
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item>nav 1</li>
+      <li nz-menu-item>nav 2</li>
+      <li nz-menu-item>nav 3</li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light">
+      <ul nz-menu nzMode="inline" class="sider-menu">
+        <li nz-menu-item>
+          <span nz-icon nzType="pie-chart"></span>
+          <span>Option 1</span>
+        </li>
+        <li nz-menu-item>
+          <span nz-icon nzType="pie-chart"></span>
+          <span>Option 2</span>
+        </li>
+        <li nz-menu-item>
+          <span nz-icon nzType="pie-chart"></span>
+          <span>Option 3</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-content>
+        <h1 class="text-3xl font-bold underline">
+          Hello world!
+        </h1>
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

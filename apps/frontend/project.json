@@ -19,11 +19,27 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/frontend/public"
+            "input": "apps/frontend/public",
+            "output": "/assets/"
           }
         ],
-        "styles": ["apps/frontend/src/styles.less"],
-        "scripts": []
+        "styles": [
+          "apps/frontend/src/styles.less",
+          {
+            "input": "apps/frontend/src/styles/default.less",
+            "bundleName": "default",
+            "inject": false
+          },
+          {
+            "input": "apps/frontend/src/styles/dark.less",
+            "bundleName": "dark",
+            "inject": false
+          }
+        ],
+        "scripts": [],
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/frontend/src/styles/themes"]
+        }
       },
       "configurations": {
         "production": {
