@@ -1,11 +1,18 @@
 <nz-layout class="h-full">
-  <nz-header>
+  <nz-header class="flex justify-between items-center">
     <img ngSrc="./assets/logoipsum.svg" alt="logo" width="123" height="61" priority />
-    <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li nz-menu-item>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
-    </ul>
+    <div class="space-x-3">
+      <button nz-button nzType="primary"> Log In </button>
+      <button nz-button nzType="primary"> Sign Up </button>
+      <nz-avatar nzIcon="user" nz-dropdown [nzDropdownMenu]="avatarMenu" nzPlacement="bottomRight"></nz-avatar>
+      <nz-dropdown-menu #avatarMenu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item>1st menu item</li>
+          <li nz-menu-item>2nd menu item</li>
+          <li nz-menu-item>3rd menu item</li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
   </nz-header>
   <nz-layout>
     <nz-sider nzWidth="200px" nzTheme="light">
