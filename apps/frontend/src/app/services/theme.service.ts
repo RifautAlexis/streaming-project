@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { ThemeType } from '../models/theme-type';
 
 @Injectable({
@@ -7,23 +7,24 @@ import { ThemeType } from '../models/theme-type';
 export class ThemeService {
   currentTheme = signal(ThemeType.default);
 
+  isDarkTheme = computed(() => this.currentTheme() === ThemeType.dark);
+
   toggleTheme(): Promise<Event> {
     this.currentTheme.set(this.reverseTheme(this.currentTheme()));
-    return this.loadTheme(false);
+    return this.loadTheme(this.currentTheme(), false);
   }
 
-  loadTheme(firstLoad = true): Promise<Event> {
-    const theme = this.currentTheme();
+  loadTheme(themeToLoad: ThemeType, firstLoad = true): Promise<Event> {
     if (firstLoad) {
-      document.documentElement.classList.add(theme);
+      document.documentElement.classList.add(themeToLoad);
     }
     return new Promise<Event>((resolve, reject) => {
-      this.loadCss(`${theme}.css`, theme).then(
+      this.loadCss(`${themeToLoad}.css`, themeToLoad).then(
         (e) => {
           if (!firstLoad) {
-            document.documentElement.classList.add(theme);
+            document.documentElement.classList.add(themeToLoad);
           }
-          this.removeUnusedTheme(this.reverseTheme(theme));
+          this.removeUnusedTheme(this.reverseTheme(themeToLoad));
           resolve(e);
         },
         (e) => reject(e)
