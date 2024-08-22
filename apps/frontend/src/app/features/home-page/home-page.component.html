@@ -1,0 +1,15 @@
+@let imgUrl = 'https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80';
+
+<h1> Spotlighted Streams </h1>
+<div class="flex justify-around">
+    @for (item of imagesArray(); track $index) {
+        <img [src]="imgUrl" alt="Image 3" class="w-80 h-80 object-cover" />
+    }
+</div>
+
+<h1> Spotlighted Streams </h1>
+<div class="flex justify-around">
+    @for (item of imagesArray(); track $index) {
+        <img [src]="imgUrl" alt="Image 3" class="w-80 h-80 object-cover" />
+    }
+</div>
