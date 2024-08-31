@@ -13,6 +13,15 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
+builder.Services.AddRateLimiter(RateLimiterOptions =>
+{
+    RateLimiterOptions.AddFixedWindowLimiter("FixedWindowLimiter", options =>
+    {
+        options.Window = TimeSpan.FromSeconds(5);
+        options.PermitLimit = 2;
+    });
+});
+
 var app = builder.Build();
 
 app.UseAuthentication();
